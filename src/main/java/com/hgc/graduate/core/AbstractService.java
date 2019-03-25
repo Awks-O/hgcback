@@ -1,6 +1,7 @@
 package com.hgc.graduate.core;
 
 
+import com.hgc.graduate.service.Service;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

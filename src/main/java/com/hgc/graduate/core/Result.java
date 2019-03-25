@@ -1,22 +1,46 @@
 package com.hgc.graduate.core;
 
 import com.alibaba.fastjson.JSON;
+import java.io.Serializable;
 
 /**
  * 统一API响应结果封装
  */
-public class Result<T> {
+public class Result<T> implements Serializable {
 
-    private int code;
+    private static final long serialVersionUID = 1L;
+    private final ResultCode code;
+    private final T data;
     private String message;
-    private T data;
 
-    public Result setCode(ResultCode resultCode) {
-        this.code = resultCode.code();
-        return this;
+    private Result(ResultCode code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
     }
 
-    public int getCode() {
+    public static <E> Result<E> failure(ResultCode code) {
+        return new Result<>(code, null, null);
+    }
+
+    public static <E> Result<E> failure(ResultCode code, String msg) {
+        return new Result<>(code, msg, null);
+    }
+
+    public static <E> Result<E> success() {
+        return new Result<>(ResultCode.SUCCESS, null, null);
+    }
+
+    public static <E> Result<E> success(E data) {
+        return new Result<>(ResultCode.SUCCESS, null, data);
+    }
+
+    public static <E> Result<E> success(E data, String message) {
+        return new Result<>(ResultCode.SUCCESS, message, data);
+    }
+
+
+    public ResultCode getCode() {
         return code;
     }
 
@@ -24,18 +48,8 @@ public class Result<T> {
         return message;
     }
 
-    public Result setMessage(String message) {
-        this.message = message;
-        return this;
-    }
-
     public T getData() {
         return data;
-    }
-
-    public Result setData(T data) {
-        this.data = data;
-        return this;
     }
 
     @Override

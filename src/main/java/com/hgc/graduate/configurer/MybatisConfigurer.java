@@ -1,6 +1,7 @@
 package com.hgc.graduate.configurer;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInterceptor;
 import com.hgc.graduate.core.ProjectConstant;
 import java.util.Properties;
 import javax.sql.DataSource;
@@ -26,7 +27,7 @@ public class MybatisConfigurer {
         factory.setTypeAliasesPackage(ProjectConstant.MODEL_PACKAGE);
 
         //配置分页插件，详情请查阅官方文档
-        PageHelper pageHelper = new PageHelper();
+        PageInterceptor pageHelper = new PageInterceptor();
         Properties properties = new Properties();
         //分页尺寸为0时查询所有纪录不再执行分页
         properties.setProperty("pageSizeZero", "true");
@@ -37,7 +38,7 @@ public class MybatisConfigurer {
         pageHelper.setProperties(properties);
 
         //添加插件
-        factory.setPlugins(new Interceptor[]{(Interceptor) pageHelper});
+        factory.setPlugins(new Interceptor[]{ pageHelper});
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();

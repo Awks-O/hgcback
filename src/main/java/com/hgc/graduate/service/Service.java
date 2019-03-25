@@ -1,4 +1,4 @@
-package com.hgc.graduate.core;
+package com.hgc.graduate.service;
 
 import java.util.List;
 import org.apache.ibatis.exceptions.TooManyResultsException;
