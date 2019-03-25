@@ -1,6 +1,5 @@
 package com.hgc.graduate.configurer;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInterceptor;
 import com.hgc.graduate.core.ProjectConstant;
 import java.util.Properties;
@@ -38,7 +37,7 @@ public class MybatisConfigurer {
         pageHelper.setProperties(properties);
 
         //添加插件
-        factory.setPlugins(new Interceptor[]{ pageHelper});
+        factory.setPlugins(new Interceptor[]{pageHelper});
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();

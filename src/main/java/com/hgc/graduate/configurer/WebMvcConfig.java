@@ -177,7 +177,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         linkString = StringUtils.substring(linkString, 0, linkString.length() - 1);
 
         //密钥，自己修改
-        String secret = "Potato";
+        String secret = "87daDa4HI932";
 
         //混合密钥md5
         String sign = DigestUtils.md5Hex(linkString + secret);

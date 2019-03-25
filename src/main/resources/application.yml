@@ -2,8 +2,8 @@ spring:
   profiles:
     active: dev
 
-#  所有环境通用的配置，放在这里
-# 404 交给异常处理器处理
+  #  所有环境通用的配置，放在这里
+  # 404 交给异常处理器处理
   mvc:
     throw-exception-if-no-handler-found: true
   resources:
@@ -12,7 +12,7 @@ spring:
   # 数据源配置，请修改为你项目的实际配置
   datasource:
     url: jdbc:mysql://localhost:3306/test
-    username: root
+    username: rootadsa
     password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
 

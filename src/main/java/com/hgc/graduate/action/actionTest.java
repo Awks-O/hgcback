@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class actionTest {
+
     @GetMapping("/info")
     public Result query() {
         return Result.success(true);
